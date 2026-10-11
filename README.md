@@ -1,6 +1,6 @@
 # Bid XI
 
-A custom cricket auction studio with an animated broadcast player frame, separate projector tab, player and team management, budget and squad enforcement, sold/unsold rounds, undo, CSV results, printable squads, and live frame customization.
+A cricket auction studio with a light ivory/cobalt dashboard, a branded sports presentation, synchronized GSAP shuffle and player reveal, canvas-confetti SOLD celebration, fullscreen operator controls, editable players, and a live frame designer.
 
 ## Run
 
@@ -15,9 +15,9 @@ npm run dev -- --port 5173
 
 ## Current scope
 
-This version is a single-browser workspace with fictional demo players. Results are saved in localStorage, not a cloud account. The projector opens with `?display=1` and receives changes from tabs of the same browser/origin. It is not a remote public display. Photo uploads are limited to 2 MB each; browser storage is finite, so export results regularly. CSV export includes player/team/price records. Team squads support browser print/save PDF.
+This version is a single-browser workspace with fictional demo players. Results are saved in localStorage, not a cloud account. The projector opens with `?display=1`. Player records and presentation events (shuffle/sold/unsold) synchronize between tabs of the same browser/origin. Use Show controls to run the auction in that tab, or hide controls for the audience. The expand button inside the studio opens fullscreen with a working control dock. It is not a remote public display. Photo uploads are limited to 2 MB each; browser storage is finite, so export results regularly. CSV export includes player/team/price records. Team squads support browser print/save PDF.
 
-Auction selection uses rejection sampling with browser crypto. This local implementation is suitable for evaluating the workflow; do not treat it as an authenticated multi-user production auction. New-tournament creation replaces the local tournament, with one undo available. Templates, file imports, sponsor assets, remote access, and full offline synchronization are future work.
+Auction selection uses rejection sampling with browser crypto. This local implementation is suitable for evaluating the workflow; do not treat it as an authenticated multi-user production auction. New-tournament creation replaces the local tournament, with one undo available. Bulk player imports, remote access, authenticated organizer accounts, and full offline synchronization are future work.
 
 ## Deployment
 
@@ -29,4 +29,20 @@ Vercel: import this GitHub repository, select Vite, build `npm run build`, outpu
 
 ## Design
 
-Deep green/navy surfaces, warm gold highlights, condensed broadcast typography, restrained motion, and a configurable accent. Motion powers staged reveals and sale transitions. Reduced-motion preferences are respected. The initial generated logo is in `public/bid-xi-logo.png`; the interface uses a crisp typographic wordmark.
+The website uses light ivory surfaces and cobalt controls. The actual generated logo is shown in the sidebar and frame. Three frame presets (Matchday, Classic, Spotlight) support background color/image, uploaded tournament/sponsor logos, sponsor name, photo side/fit/alignment, typography, visible player fields, accent and animation pacing. The included generated stadium background is available in the editor. Motion handles component transitions, GSAP coordinates the staged presentation, and canvas-confetti provides sale celebrations. No components from React Bits, Animata, or Tailwind Animations are copied: those sites were inaccessible during this work. Reduced-motion preferences are respected.
+
+## Update an existing Windows checkout
+
+Stop the running server with Ctrl+C, then:
+
+```powershell
+git pull origin main
+npm install
+npm run dev
+```
+
+Keep the terminal open. Visit the exact HTTP address printed by Vite, typically `http://localhost:5173/`. Old local player/team records are retained; new frame settings are filled in automatically. No paid services are required for the local version.
+
+## Browser regression checks
+
+With the app running, run `npm run test:browser`. Set `APP_URL` to use another port, and `CHROMIUM_PATH` for the local Chromium executable. The checks cover projector animations and controls, cross-tab undo, editing, saved data, frame uploads/layout, fullscreen and mobile overflow.
