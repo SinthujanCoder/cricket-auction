@@ -1,0 +1,41 @@
+{
+  "name": "bid-xi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --experimental-strip-types --test tests/auction.test.ts",
+    "test:browser": "node tests/browser.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SinthujanCoder/cricket-auction.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/SinthujanCoder/cricket-auction/issues"
+  },
+  "homepage": "https://github.com/SinthujanCoder/cricket-auction#readme",
+  "private": true,
+  "dependencies": {
+    "@fontsource/barlow-condensed": "^5.3.0",
+    "@fontsource/dm-sans": "^5.3.0",
+    "lucide-react": "^1.55.0",
+    "motion": "^14.1.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
+  }
+}
